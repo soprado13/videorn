@@ -14,8 +14,9 @@ export {Header}
 const styles = StyleSheet.create({
     headerWrapper: {
         paddingVertical: 15,
-        paddingHorizontal: 40,
-        backgroundColor: '#fafafa'
+        paddingHorizontal: 60,
+        backgroundColor: '#fafafa',
+        alignItems: 'flex-end'
     },
     heading: {
         fontSize: 28,
