@@ -1,10 +1,14 @@
 import React from 'react';
-import {ScrollView, View, Text} from 'react-native';
+import {ScrollView} from 'react-native';
+import {ListItem} from "./ListItem";
 
 const VideoList = ({data}) => {
-    return(
+    console.log(data);
+    return (
         <ScrollView>
-
+            {data.map(video => {
+                return <ListItem title={video.title} key={video.id} id={video.id}/>
+            })}
         </ScrollView>
     )
 };

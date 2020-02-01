@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, SafeAreaView, StatusBar} from 'react-native';
-import {Header} from './src/components/'
+import {StyleSheet, Text, View, SafeAreaView, StatusBar, ActivityIndicator} from 'react-native';
+import {Header, VideoList} from './src/components/'
 import {w, h, url} from './constants'
 
 class App extends React.Component {
@@ -13,24 +13,40 @@ class App extends React.Component {
         }
     };
 
-    componentDidMount = async () => {
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            this.setState({ data })
-        } catch (e) {
-            throw e
-        }
+    componentDidMount() {
+        return fetch(url)
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    data: responseJson
+                }, function () {
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
 
+
     render() {
-        console.log(this.state.data);
+        if (this.state.isLoading) {
+            return (
+                <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+                    <SafeAreaView>
+                        <StatusBar barStyle="dark-content"/>
+                    </SafeAreaView>
+                    <ActivityIndicator size="large" color="#00ff00"/>
+                </View>
+            )
+        };
         return (
             <View style={styles.container}>
                 <SafeAreaView>
                     <StatusBar barStyle="light-content"/>
                 </SafeAreaView>
                 <Header title={this.state.title}/>
+                <VideoList data={this.state.data.videos}/>
             </View>
         );
     }
