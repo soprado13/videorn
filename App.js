@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, SafeAreaView, StatusBar, ActivityIndicator} from 'react-native';
+import {StyleSheet, View, SafeAreaView, StatusBar, ActivityIndicator} from 'react-native';
 import {Header, VideoList} from './src/components/'
 import {w, h, url} from './constants'
 
@@ -28,25 +28,31 @@ class App extends React.Component {
             });
     };
 
+    setNewHeading = (newHeading) => {
+        this.setState({title: newHeading});
+    };
 
     render() {
+
+        console.log(this.state.title);
         if (this.state.isLoading) {
             return (
                 <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                     <SafeAreaView>
                         <StatusBar barStyle="dark-content"/>
                     </SafeAreaView>
-                    <ActivityIndicator size="large" color="#00ff00"/>
+                    <ActivityIndicator size="large" color="red"/>
                 </View>
             )
-        };
+        }
+        ;
         return (
             <View style={styles.container}>
                 <SafeAreaView>
                     <StatusBar barStyle="light-content"/>
                 </SafeAreaView>
-                <Header title={this.state.title}/>
-                <VideoList data={this.state.data.videos}/>
+                <Header heading={this.state.title}/>
+                <VideoList data={this.state.data.videos} setNewHeading={this.setNewHeading}/>
             </View>
         );
     }

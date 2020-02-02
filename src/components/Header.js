@@ -1,12 +1,20 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const Header = ({title}) => {
-    return (
-        <View style={styles.headerWrapper}>
-            <Text style={styles.heading}>{title}</Text>
-        </View>
-    )
+class Header extends React.Component {
+    componentDidUpdate(prevProps) {
+        if (prevProps.heading !== this.props.heading){
+            this.props.heading
+        }
+    }
+
+    render() {
+        return (
+            <View style={styles.headerWrapper}>
+                <Text style={styles.heading}>{this.props.heading}</Text>
+            </View>
+        )
+    }
 };
 
 export {Header}

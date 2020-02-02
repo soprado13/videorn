@@ -1,15 +1,41 @@
-import React from 'react';
-import {ScrollView} from 'react-native';
-import {ListItem} from "./ListItem";
+import React, {Component} from 'react';
+import {ScrollView, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {Ionicons} from "@expo/vector-icons";
 
-const VideoList = ({data}) => {
-    return (
-        <ScrollView>
-            {data.map(video => {
-                return <ListItem title={video.title} key={video.id} id={video.id} src={video.src}/>
-            })}
-        </ScrollView>
-    )
+const VideoList = ({data, setNewHeading}) => {
+        return (
+            <ScrollView>
+                {data.map(video => {
+                    let onPress = () => {
+                        setNewHeading(video.title);
+                    };
+                    return (
+                        <TouchableOpacity onPress={onPress} key={video.id}>
+                            <View style={styles.itemWrapper}>
+                                <Ionicons name="md-checkmark-circle" size={32} color="#fafafa"/>
+                                <Text style={styles.videoListTitle}>{video.title}</Text>
+                            </View>
+                        </TouchableOpacity>
+                    )
+                })}
+            </ScrollView>
+        )
 };
 
 export {VideoList}
+
+const styles = StyleSheet.create({
+    itemWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 30,
+        paddingVertical: 20,
+        borderTopColor: '#fefefe',
+        borderTopWidth: 1,
+    },
+    videoListTitle: {
+        color: '#fafafa',
+        fontSize: 22,
+        paddingLeft: 20
+    }
+});
