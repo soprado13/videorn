@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import {ScrollView, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Ionicons} from "@expo/vector-icons";
 
-const VideoList = ({data, setNewHeading}) => {
+const VideoList = ({data, setNewData}) => {
         return (
             <ScrollView>
                 {data.map(video => {
                     let onPress = () => {
-                        setNewHeading(video.title);
+                        setNewData(video.title, video.src);
                     };
                     return (
                         <TouchableOpacity onPress={onPress} key={video.id}>

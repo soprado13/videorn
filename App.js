@@ -10,6 +10,7 @@ class App extends React.Component {
             isLoading: true,
             data: [],
             title: 'VideoApp',
+            src: null,
         }
     };
 
@@ -28,13 +29,13 @@ class App extends React.Component {
             });
     };
 
-    setNewHeading = (newHeading) => {
-        this.setState({title: newHeading});
+    setNewData = (newHeading, newSrc) => {
+        this.setState({title: newHeading, src: newSrc});
     };
 
     render() {
 
-        console.log(this.state.title);
+        console.log(this.state.src);
         if (this.state.isLoading) {
             return (
                 <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -52,7 +53,7 @@ class App extends React.Component {
                     <StatusBar barStyle="light-content"/>
                 </SafeAreaView>
                 <Header heading={this.state.title}/>
-                <VideoList data={this.state.data.videos} setNewHeading={this.setNewHeading}/>
+                <VideoList data={this.state.data.videos} setNewData={this.setNewData}/>
             </View>
         );
     }
