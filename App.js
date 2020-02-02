@@ -34,8 +34,6 @@ class App extends React.Component {
     };
 
     render() {
-
-        console.log(this.state.src);
         if (this.state.isLoading) {
             return (
                 <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
