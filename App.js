@@ -10,7 +10,7 @@ class App extends React.Component {
             isLoading: true,
             data: [],
             title: 'VideoApp',
-            src: require('./src/videos/video0.mp4'),
+            src: '',
         }
     };
 
@@ -52,8 +52,8 @@ class App extends React.Component {
                 </SafeAreaView>
                 <Header heading={this.state.title}/>
                 <ScrollView>
-                    <VideoList data={this.state.data.videos} setNewData={this.setNewData}/>
                     <CurrentVideo heading={this.state.title} src={this.state.src} />
+                    <VideoList data={this.state.data.videos} setNewData={this.setNewData}/>
                 </ScrollView>
             </View>
         );
