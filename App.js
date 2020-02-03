@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, SafeAreaView, StatusBar, ActivityIndicator} from 'react-native';
-import {Header, VideoList} from './src/components/'
+import {StyleSheet, View, SafeAreaView, StatusBar, ActivityIndicator, ScrollView} from 'react-native';
+import {Header, VideoList, CurrentVideo} from './src/components/'
 import {w, h, url} from './constants'
 
 class App extends React.Component {
@@ -10,7 +10,7 @@ class App extends React.Component {
             isLoading: true,
             data: [],
             title: 'VideoApp',
-            src: null,
+            src: require('./src/videos/video0.mp4'),
         }
     };
 
@@ -51,7 +51,10 @@ class App extends React.Component {
                     <StatusBar barStyle="light-content"/>
                 </SafeAreaView>
                 <Header heading={this.state.title}/>
-                <VideoList data={this.state.data.videos} setNewData={this.setNewData}/>
+                <ScrollView>
+                    <VideoList data={this.state.data.videos} setNewData={this.setNewData}/>
+                    <CurrentVideo heading={this.state.title} src={this.state.src} />
+                </ScrollView>
             </View>
         );
     }
