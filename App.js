@@ -10,7 +10,7 @@ class App extends React.Component {
             isLoading: true,
             data: [],
             title: 'VideoApp',
-            src: '',
+            src: require('./src/videos/video0.mp4'),
         }
     };
 

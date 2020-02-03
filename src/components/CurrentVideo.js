@@ -9,7 +9,7 @@ const CurrentVideo = ({heading, src}) => {
         <View style={styles.videoWrapper}>
             <Text>{heading}</Text>
             <Video
-                source={{ src }}
+                source={src}
                 rate={1.0}
                 volume={1.0}
                 isMuted={false}

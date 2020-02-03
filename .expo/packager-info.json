@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": null,
-  "packagerPid": null,
+  "packagerPort": 19001,
+  "packagerPid": 12996,
   "expoServerNgrokUrl": "https://f7-mr2.soprado13.videorn.exp.direct",
   "packagerNgrokUrl": "https://packager.f7-mr2.soprado13.videorn.exp.direct",
-  "ngrokPid": 17440
+  "ngrokPid": 11688
 }
