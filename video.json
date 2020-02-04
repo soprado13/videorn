@@ -2,52 +2,52 @@
     "videos": [
         {
             "id": "1",
-            "src": require('../../src/videos/video1.mp4'),
+            "src": "require('../../src/videos/video1.mp4')",
             "title": "Video1"
         },
         {
             "id": "2",
-            "src": require('../../src/videos/video2.mp4'),
+            "src": "require('../../src/videos/video2.mp4')",
             "title": "Video2"
         },
         {
             "id": "3",
-            "src": require('../../src/videos/video3.mp4'),
+            "src": "require('../../src/videos/video3.mp4')",
             "title": "Video3"
         },
         {
             "id": "4",
-            "src": require('../../src/videos/video4.mp4'),
+            "src": "require('../../src/videos/video4.mp4')",
             "title": "Video4"
         },
         {
             "id": "5",
-            "src": require('../../src/videos/video5.mp4'),
+            "src": "require('../../src/videos/video5.mp4')",
             "title": "Video5"
         },
         {
             "id": "6",
-            "src": require('../../src/videos/video6.mp4'),
+            "src": "require('../../src/videos/video6.mp4')",
             "title": "Video6"
         },
         {
             "id": "7",
-            "src": require('../../src/videos/video7.mp4'),
+            "src": "require('../../src/videos/video7.mp4')",
             "title": "Video7"
         },
         {
             "id": "8",
-            "src": require('../../src/videos/video8.mp4'),
+            "src": "require('../../src/videos/video8.mp4')",
             "title": "Video8"
         },
         {
             "id": "9",
-            "src": require('../../src/videos/video9.mp4'),
+            "src": "require('../../src/videos/video9.mp4')",
             "title": "Video9"
         },
         {
             "id": "10",
-            "src": require('../../src/videos/video0.mp4'),
+            "src": "require('../../src/videos/video0.mp4')",
             "title": "Video10"
         }
     ]
