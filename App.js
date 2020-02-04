@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, SafeAreaView, StatusBar, ActivityIndicator, ScrollView} from 'react-native';
+import {SafeAreaView, StyleSheet, View, StatusBar, ActivityIndicator} from 'react-native';
 import {Header, VideoList, CurrentVideo} from './src/components/'
 import {w, h, url} from './constants'
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
 class App extends React.Component {
     constructor(props) {
@@ -10,7 +12,7 @@ class App extends React.Component {
             isLoading: true,
             data: [],
             title: 'VideoApp',
-            src: require('./src/videos/video0.mp4'),
+            src: 'https://github.com/soprado13/videorn/blob/master/src/videos/video0.mp4?raw=true',
         }
     };
 
@@ -33,7 +35,20 @@ class App extends React.Component {
         this.setState({title: newHeading, src: newSrc});
     };
 
+    RootStack = createStackNavigator(
+        {
+            List: () => <VideoList data={this.state.data.videos} setNewData={this.setNewData} navigation={this.state.navigation}/>,
+            Video: () => <CurrentVideo heading={this.state.title} source={this.state.src}/>,
+        },
+        {
+            initialRouteName: 'List',
+        }
+    );
+
+
     render() {
+
+        const AppContainer = createAppContainer(this.RootStack);
         if (this.state.isLoading) {
             return (
                 <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -50,11 +65,10 @@ class App extends React.Component {
                 <SafeAreaView>
                     <StatusBar barStyle="light-content"/>
                 </SafeAreaView>
-                <Header heading={this.state.title}/>
-                <ScrollView>
-                    <CurrentVideo heading={this.state.title} src={this.state.src} />
-                    <VideoList data={this.state.data.videos} setNewData={this.setNewData}/>
-                </ScrollView>
+                {/*<Header heading={this.state.title}/>*/}
+                <AppContainer />
+                {/*<CurrentVideo heading={this.state.title} source={this.state.src} />*/}
+                {/*<VideoList data={this.state.data.videos} setNewData={this.setNewData}/>*/}
             </View>
         );
     }
@@ -67,6 +81,5 @@ const styles = StyleSheet.create({
         paddingTop: StatusBar.currentHeight,
         width: w,
         height: h,
-        backgroundColor: '#333333',
     }
 });

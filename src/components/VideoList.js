@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         borderTopColor: '#fefefe',
         borderTopWidth: 1,
+        backgroundColor: '#333333'
     },
     videoListTitle: {
         color: '#fafafa',

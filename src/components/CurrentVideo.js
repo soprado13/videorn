@@ -3,13 +3,13 @@ import {View, Text, StyleSheet} from 'react-native';
 import {Video} from 'expo-av';
 import {w, h} from '../../constants';
 
-const CurrentVideo = ({heading, src}) => {
-    console.log(src);
+const CurrentVideo = ({heading, source}) => {
+    console.log(source);
     return (
         <View style={styles.videoWrapper}>
             <Text>{heading}</Text>
             <Video
-                source={src}
+                source={{ uri: source}}
                 rate={1.0}
                 volume={1.0}
                 isMuted={false}
@@ -26,8 +26,7 @@ export {CurrentVideo}
 
 const styles = StyleSheet.create({
     videoWrapper: {
-        width: w,
-        height: h,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
