@@ -10,7 +10,7 @@ class App extends React.Component {
             isLoading: true,
             data: [],
             title: 'VideoApp',
-            src: '',
+            src: 'https://github.com/soprado13/videorn/blob/master/src/videos/video0.mp4?raw=true',
         }
     };
 

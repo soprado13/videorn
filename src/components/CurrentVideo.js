@@ -4,12 +4,11 @@ import {Video} from 'expo-av';
 import {w, h} from '../../constants';
 
 const CurrentVideo = ({heading, src}) => {
-    console.log(src);
     return (
         <View style={styles.videoWrapper}>
             <Text>{heading}</Text>
             <Video
-                source={{ src }}
+                source={{ uri : src }}
                 rate={1.0}
                 volume={1.0}
                 isMuted={false}
